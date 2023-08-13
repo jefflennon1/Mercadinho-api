@@ -23,4 +23,5 @@ public class ProdutosResouces {
 	public List<Produto> todos() {
 		return produtoService.getTodos();
 	}
+	 
 }
