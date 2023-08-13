@@ -1,6 +1,7 @@
 package com.jefflennon.mercadinhoapi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,11 @@ public class ProdutoService {
 
 	@Autowired
 	private ProdutoRepository repository;
+	
+	public Produto getProduto(Long id) {
+		Optional<Produto> produto = repository.findById(id);
+		return produto.get();
+	}
 	
 	public List<Produto> getTodos() {
 		return repository.findAll();
@@ -28,4 +34,5 @@ public class ProdutoService {
 			throw new Exception("[ERROR] - Por favor verifique os campos obrigatórios e tente novamente!");
 		}
 	}
+
 }
