@@ -20,6 +20,8 @@ import com.jefflennon.mercadinhoapi.service.ProdutoService;
 @RequestMapping("/produtos")
 public class ProdutosResouces {
 	
+	String uriDefault = "/produtos";
+	
 	@Autowired
 	private ProdutoService service; 
 
@@ -47,7 +49,7 @@ public class ProdutosResouces {
 	public ResponseEntity<?> salvar(@RequestBody Produto produto) {
 		try {
 			service.salvar(produto);
-			URI location = URI.create(String.format("/produto?id=%s", produto.getId()));
+			URI location = URI.create(String.format(uriDefault+"/buscar?id=%s", produto.getId()));
 			return ResponseEntity.created(location).build();
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
