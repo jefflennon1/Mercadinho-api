@@ -5,8 +5,13 @@ public class Produto {
 	private Long id;
 	
 	private String nome;
+	
+	private String descricao;
+	
 	private double preco;
+	
 	private Categoria categoria;
+	
 	private int quantidadeDisponivel;
 	
 	
@@ -39,6 +44,12 @@ public class Produto {
 	}
 	public void setQuantidadeDisponivel(int quantidadeDisponivel) {
 		this.quantidadeDisponivel = quantidadeDisponivel;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	
 	
