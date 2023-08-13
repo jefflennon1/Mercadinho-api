@@ -25,7 +25,7 @@ public class ProdutosResouces {
 	@GetMapping(path = "/todos", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> todos() { 
 		try { 
-			List<Produto> produtos  = service.getTodos();		
+			List<Produto> produtos = service.getTodos();		
 			return ResponseEntity.ok(produtos);
 		} catch (Exception e) {
 			return ResponseEntity.status(500).body(e.getMessage());

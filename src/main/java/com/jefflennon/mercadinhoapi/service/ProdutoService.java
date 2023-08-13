@@ -18,7 +18,14 @@ public class ProdutoService {
 		return repository.findAll();
 	}
 	
-	public void salvar(Produto produto) {
+	public void salvar(Produto produto) throws Exception {
+		validaCamposObrigatorios(produto);
 		repository.save(produto);
+	}
+
+	private void validaCamposObrigatorios(Produto produto) throws Exception {
+		if(produto.getCategoria() == null || produto.getNome() == null || produto.getPreco() <= 0) {
+			throw new Exception("[ERROR] - Por favor verifique os campos obrigatórios e tente novamente!");
+		}
 	}
 }
