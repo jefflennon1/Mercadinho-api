@@ -1,17 +1,33 @@
 package com.jefflennon.mercadinhoapi.model;
 
+import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "PRODUTO")
 public class Produto {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "NOME")
 	private String nome;
 	
+	@Column(name = "DESCRICAO")
 	private String descricao;
 	
+	@Column(name = "PRECO")
 	private double preco;
 	
+	 
 	private Categoria categoria;
 	
+	@Column(name = "QTD_DISPONIVEL")
 	private int quantidadeDisponivel;
 	
 	
