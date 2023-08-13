@@ -1,12 +1,12 @@
 package com.jefflennon.mercadinhoapi.model;
 
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name = "PRODUTO")
 public class Produto {
@@ -22,13 +22,15 @@ public class Produto {
 	private String descricao;
 	
 	@Column(name = "PRECO")
-	private double preco;
-	
+	private double preco;	
 	 
+	@ManyToOne
+	@JoinColumn(name = "CATEGORIA_ID")
 	private Categoria categoria;
 	
 	@Column(name = "QTD_DISPONIVEL")
 	private int quantidadeDisponivel;
+	
 	
 	
 	public Long getId() {
