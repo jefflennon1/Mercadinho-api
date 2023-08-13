@@ -1,9 +1,9 @@
 package com.jefflennon.mercadinhoapi.resources;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +47,8 @@ public class ProdutosResouces {
 	public ResponseEntity<?> salvar(@RequestBody Produto produto) {
 		try {
 			service.salvar(produto);
-			return ResponseEntity.status(201).body(produto);
+			URI location = URI.create(String.format("/produto?id=%s", produto.getId()));
+			return ResponseEntity.created(location).build();
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
