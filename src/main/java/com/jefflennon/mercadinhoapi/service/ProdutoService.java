@@ -15,11 +15,10 @@ public class ProdutoService {
 	private ProdutoRepository repository;
 	
 	public List<Produto> getTodos() {
-		try {
-			return repository.findAll();
-		} catch (Exception e) {
-			System.out.println("[error] "+e.getMessage());
-		}
-		return null;
+		return repository.findAll();
+	}
+	
+	public void salvar(Produto produto) {
+		repository.save(produto);
 	}
 }
