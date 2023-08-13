@@ -1,0 +1,1 @@
+Tabela onde fica guardado o hitórico de migrações: flyway_schema_history
